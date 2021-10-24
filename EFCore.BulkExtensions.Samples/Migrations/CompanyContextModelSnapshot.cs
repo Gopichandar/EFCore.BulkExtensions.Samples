@@ -21,10 +21,13 @@ namespace EFCore.BulkExtensions.Samples.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Name")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Customers");
                 });

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFCore.BulkExtensions.Samples.Migrations
 {
     [DbContext(typeof(CompanyContext))]
-    [Migration("20211024143151_CreateCompanyDB")]
+    [Migration("20211024163738_CreateCompanyDB")]
     partial class CreateCompanyDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,10 +23,13 @@ namespace EFCore.BulkExtensions.Samples.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Name")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Customers");
                 });

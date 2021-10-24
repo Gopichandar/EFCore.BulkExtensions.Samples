@@ -55,8 +55,7 @@ namespace EFCore.BulkExtensions.Samples
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Customer>()
-                .HasIndex(u => u.Name)
-                .IsUnique();
+               .HasIndex(p => p.Name).IsUnique();
         }
     }
 
